@@ -16,8 +16,9 @@ function trigger() {
 //Detecting Keyboard Press
 
 document.addEventListener("keypress", function (event) {
-  makeSound(event.key);
-  btnAnimation(event.key);
+  var key = event.key.toLowerCase();
+  makeSound(key);
+  btnAnimation(key);
 });
 
 //Sounds
@@ -67,11 +68,14 @@ function makeSound(key) {
 //Animation For Keypress
 
 function btnAnimation(whichBtn) {
-  var activeBtn = document
-    .querySelector("." + whichBtn)
-    .classList.add("pressed");
+  var activeBtn = document.querySelector("." + whichBtn);
+  if (!activeBtn) {
+    // Key isn't mapped to a drum pad, nothing to animate.
+    return;
+  }
+  activeBtn.classList.add("pressed");
 
   setTimeout(function () {
-    document.querySelector("." + whichBtn).classList.remove("pressed");
+    activeBtn.classList.remove("pressed");
   }, 100);
 }

@@ -10,6 +10,10 @@ A browser drum kit you can play by clicking the pads or pressing the correspondi
 
 Open `index.html` in a browser.
 
+## Screenshot
+
+![Drum Kit screenshot](docs/screenshot.png)
+
 ## License
 
 MIT — see [LICENSE](LICENSE).
